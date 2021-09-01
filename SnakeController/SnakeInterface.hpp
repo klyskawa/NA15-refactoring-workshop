@@ -73,4 +73,11 @@ struct LooseInd
     static constexpr std::uint32_t MESSAGE_ID = 0x71;
 };
 
+struct Segment
+{
+    int x;
+    int y;
+    int ttl;
+};
+
 } // namespace Snake

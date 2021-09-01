@@ -32,13 +32,23 @@ public:
 
     void receive(std::unique_ptr<Event> e) override;
 
+    Direction checkDirection(char input);
+    Direction adjustDirection(Direction direction);
+
+    void placeNewReceivedFood(bool requestedFoodCollidedWithSnake, Snake::FoodInd foodToPlace);
+    void placeNewRequestedFood(bool requestedFoodCollidedWithSnake, Snake::FoodResp foodToPlace);
+
+    bool checkIfNewHeadCollidesWithBody(Segment head);
+    bool checkIfReceivedFoodCollidedWithSnake(Snake::FoodInd food);
+    bool checkIfRequestedFoodCollidedWithSnake(Snake::FoodResp food);
+    
+    bool checkIfSnakeCanBeMoved(Segment head);
+    void moveSnake(Segment head);
+
+    Segment makeHead();
+
 private:
-    struct Segment
-    {
-        int x;
-        int y;
-        int ttl;
-    };
+    
 
     IPort& m_displayPort;
     IPort& m_foodPort;
