@@ -231,25 +231,7 @@ void Controller::receive(std::unique_ptr<Event> e)
             break;
         default:
             throw UnexpectedEventException();
-        
     }
-    // try {
-    //     handleTimePassed(*dynamic_cast<EventT<TimeoutInd> const&>(*e));
-    // } catch (std::bad_cast&) {
-    //     try {
-    //         handleDirectionChange(*dynamic_cast<EventT<DirectionInd> const&>(*e));
-    //     } catch (std::bad_cast&) {
-    //         try {
-    //             handleFoodPositionChange(*dynamic_cast<EventT<FoodInd> const&>(*e));
-    //         } catch (std::bad_cast&) {
-    //             try {
-    //                 handleNewFood(*dynamic_cast<EventT<FoodResp> const&>(*e));
-    //             } catch (std::bad_cast&) {
-    //                 throw UnexpectedEventException();
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 } // namespace Snake
